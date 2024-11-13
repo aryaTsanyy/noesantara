@@ -1,0 +1,37 @@
+/** @format */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+@font-face {
+  font-family: "figtree-bold";
+  src: url("./fonts/figtree/Figtree-Bold.otf");
+  font-weight: 800;
+}
+@font-face {
+  font-family: "figtree-medium";
+  src: url("./fonts/figtree/Figtree-Medium.otf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "figtree-regular";
+  src: url("./fonts/figtree/Figtree-Regular.otf");
+  font-weight: 400;
+}
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "figtree-regular";
+}
