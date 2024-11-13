@@ -1,4 +1,5 @@
 /** @format */
 
 import Navigationbar from "./navigationbar";
-export { Navigationbar };
+import LanguageDropdown from "./languageDropdown";
+export { Navigationbar, LanguageDropdown };

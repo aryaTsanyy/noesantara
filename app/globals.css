@@ -5,25 +5,24 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #b4c9ff;
+  --foreground: #fff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 @font-face {
   font-family: "figtree-bold";
   src: url("./fonts/figtree/Figtree-Bold.otf");
   font-weight: 800;
 }
 @font-face {
-  font-family: "figtree-medium";
+  font-family: "figtree-semibold";
   src: url("./fonts/figtree/Figtree-Medium.otf");
   font-weight: 600;
+}
+@font-face {
+  font-family: "figtree-medium";
+  src: url("./fonts/figtree/Figtree-Medium.otf");
+  font-weight: 500;
 }
 @font-face {
   font-family: "figtree-regular";
@@ -88,7 +87,7 @@ body {
 
 .circle-arrow::before,
 .circle-arrow::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 20%;
   left: 50%;
@@ -106,18 +105,39 @@ body {
   top: 15%;
 }
 
-@keyframes circle-arrow{
-  0%{
+@keyframes circle-arrow {
+  0% {
     opacity: 0;
   }
-  30%{
+  30% {
     opacity: 1;
   }
-  60%{
+  60% {
     opacity: 1;
   }
-  100%{
+  100% {
     opacity: 0;
     top: 30%;
   }
+}
+/* Navbar */
+.nav-center {
+  background: rgba(7, 75, 91, 0.1);
+  padding: 12px 21px;
+}
+/* DropdownLanguage & btnmasuk */
+.dropdown-language {
+  background: rgba(7, 75, 91, 0.1);
+  padding: 11px 20px;
+  font-family: "figtree-semibold";
+  font-weight: 600;
+  font-size: 16px;
+}
+.btn-login {
+  width: 100%;
+  font-family: "figtree-bold";
+  font-size: 16px;
+  padding: 11px 20px;
+  border-radius: 50px;
+  color: #074b5b;
 }

@@ -6,7 +6,7 @@ import "./globals.css";
 
 const figtree = localFont({
   src: "./fonts/figtree/Figtree-Regular.otf",
-  variable: "--font-geist-sans",
+  variable: "--font-figtree",
   weight: "100 900",
 });
 

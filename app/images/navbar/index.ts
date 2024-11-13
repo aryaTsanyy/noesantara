@@ -1,4 +1,4 @@
 /** @format */
 
-import Logo from "./Noesantara-logo.png";
+import Logo from "./Neosantara-logo.png";
 export { Logo };
