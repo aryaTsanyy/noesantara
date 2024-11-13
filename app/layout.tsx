@@ -5,7 +5,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 const figtree = localFont({
-  src: "./fonts/figtree",
+  src: "./fonts/figtree/Figtree-Regular.otf",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
