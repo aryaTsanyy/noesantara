@@ -35,3 +35,89 @@ body {
   background: var(--background);
   font-family: "figtree-regular";
 }
+/* ScrollButton.css */
+.scroll-button {
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffffff;
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+.text span {
+  display: block;
+  line-height: 1.2; /* Sesuaikan jarak antar huruf */
+}
+
+.circle {
+  width: 45px;
+  height: 175px;
+  background-color: #727887;
+  font-family: "figtree-medium";
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  padding-top: 10px; /* Memberi jarak agar teks "Lanjut" berada di atas lingkaran */
+  overflow: hidden;
+}
+
+.circle-arrow {
+  width: 30px;
+  height: 30px;
+  background-color: #ffffff; /* Lingkaran putih di dalam */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto; /* Memposisikan lingkaran putih di bagian bawah */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.circle-arrow::before,
+.circle-arrow::after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  border: 2px solid #727887;
+  height: 10px;
+  width: 10px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-top: transparent;
+  border-left: transparent;
+  animation: circle-arrow 1s ease-in-out infinite;
+  margin-top: 120px;
+}
+
+.circle-arrow::after {
+  top: 15%;
+}
+
+@keyframes circle-arrow{
+  0%{
+    opacity: 0;
+  }
+  30%{
+    opacity: 1;
+  }
+  60%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+    top: 30%;
+  }
+}
