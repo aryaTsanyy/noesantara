@@ -1,6 +1,7 @@
 "use client";
 import { IKN } from "@/app/images/hero-section";
 import { Gradient } from "@/app/images/hero-section";
+import Image from 'next/image';
 
 // WelcomeSection.tsx
 import React, { useState } from 'react';
@@ -16,7 +17,7 @@ interface DotInfo {
   };
 }
 
-const WelcomeSection: React.FC = () => {
+const Home = () => {
   const [activeCard, setActiveCard] = useState<number | null>(null);
 
   const dots: DotInfo[] = [
@@ -56,10 +57,11 @@ const WelcomeSection: React.FC = () => {
     <div className="welcome-container">
       {/* Background image container */}
       <div className="background-image">
-        <img
-          style={IKN}
-          alt="Background"
-          className="gradient-overlay"
+        <Image src={IKN} alt="background 1"
+          className="background-img"
+        />
+        <Image src={Gradient} alt="background 2"
+          className="background-img overlay-image"
         />
       </div>
 
@@ -95,4 +97,4 @@ const WelcomeSection: React.FC = () => {
   );
 };
 
-export default WelcomeSection;
+export default Home;
