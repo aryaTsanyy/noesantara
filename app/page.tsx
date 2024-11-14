@@ -2,9 +2,12 @@
 import { IKN } from "@/app/images/hero-section";
 import { Gradient } from "@/app/images/hero-section";
 import Image from 'next/image';
+import { Navigationbar } from "@/components/navbar";
+import { LanguageDropdown } from "@/components/navbar"
 
 // WelcomeSection.tsx
 import React, { useState } from 'react';
+import { Scrollbutton } from "@/components/button";
 
 interface DotInfo {
   id: number;
@@ -55,6 +58,7 @@ const Home = () => {
 
   return (
     <div className="welcome-container">
+      <Navigationbar />
       {/* Background image container */}
       <div className="background-image">
         <Image src={IKN} alt="background 1"
@@ -92,6 +96,7 @@ const Home = () => {
             )}
           </div>
         ))}
+        <Scrollbutton />
       </div>
     </div>
   );

@@ -40,6 +40,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-left: 81rem;
+  padding-top: 27rem;
 }
 
 .text {
