@@ -190,16 +190,19 @@ body {
   font-weight: 600;
   color: white;
   margin-bottom: 1rem;
+  font-family: "figtree-regular";
 }
 
 .highlight {
   color: #3BB5F2;
+  font-family: "figtree-medium";
 }
 
 .subtitle {
   font-size: 22px;
   color: #ffffff;
   opacity: 0.9;
+  font-family: "figtree-regular";
 }
 
 .floating-dots {
