@@ -1,7 +1,7 @@
 /** @format */
 
-import IKN from "./ikn.png";
+import IKN from "./ikn.svg";
 export { IKN };
 
-import Gradient from "./gradient.png";
+import Gradient from "./gradient.svg";
 export { Gradient };

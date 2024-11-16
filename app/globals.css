@@ -291,3 +291,224 @@ body {
     min-width: 240px;
   }
 }
+/* Section 1: Sponsors */
+.sponsors-section {
+  background-color: white;
+  padding: 2rem 1rem;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #0284c7;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 1.125rem;
+  color: #1f2937;
+  margin-bottom: 2rem;
+}
+
+.sponsors-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.sponsor-item {
+  width: 8rem;
+  height: 3rem;
+  position: relative;
+}
+
+.sponsor-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Section 2: Vision */
+.vision-section {
+  position: relative;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+}
+
+.vision-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.background-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.7), transparent);
+}
+
+.vision-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+}
+
+.vision-text {
+  max-width: 32rem;
+}
+
+.vision-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.vision-subtitle {
+  font-size: 1.875rem;
+  color: white;
+  margin-bottom: 0.75rem;
+}
+
+.vision-description {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.vision-images {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.vision-image {
+  object-fit: cover;
+}
+
+.vision-image.transport {
+  width: 16rem;
+  height: 16rem;
+  border-radius: 9999px;
+}
+
+.vision-image.building {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 9999px;
+  margin-left: 3rem;
+}
+
+/* Section 3: Services */
+.services-section {
+  background-color: #f9fafb;
+  padding: 4rem 1rem;
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.services-description {
+  color: #4b5563;
+}
+
+.services-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+  background-color: #0284c7;
+  color: white;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+}
+
+.service-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.service-image {
+  width: 100%;
+  height: 16rem;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-image {
+  transform: scale(1.05);
+}
+
+.service-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  display: flex;
+  align-items: flex-end;
+}
+
+.service-content {
+  padding: 1.5rem;
+}
+
+.service-title {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.service-expand-button {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  background-color: white;
+  border-radius: 9999px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.expand-icon {
+  width: 1rem;
+  height: 1rem;
+  color: #1f2937;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

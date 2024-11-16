@@ -3,7 +3,9 @@ import { IKN } from "@/app/images/hero-section";
 import { Gradient } from "@/app/images/hero-section";
 import Image from 'next/image';
 import { Navigationbar } from "@/components/navbar";
-import { LanguageDropdown } from "@/components/navbar"
+import { AWS, cisco, esri, honeywell, ibm, motorolla, microsoft, background, train, buildings, asn, bpjs, investasi } from "@/app/images/all-section";
+
+
 
 // WelcomeSection.tsx
 import React, { useState } from 'react';
@@ -56,49 +58,184 @@ const Home = () => {
     }
   ];
 
+  const collaborators = [
+    { name: 'AWS', logo: AWS },
+    { name: 'Cisco', logo: cisco },
+    { name: 'Esri', logo: esri },
+    { name: 'Honeywell', logo: honeywell },
+    { name: 'IBM', logo: ibm },
+    { name: 'Motorola', logo: motorolla },
+    { name: 'Microsoft', logo: microsoft }
+  ];
+
+  const publicServices = [
+    {
+      title: 'Smart ASN',
+      image: '/api/placeholder/400/256',
+      link: '#'
+    },
+    {
+      title: 'BPJS Kesehatan',
+      image: '/api/placeholder/400/256',
+      link: '#'
+    },
+    {
+      title: 'Layanan Investasi',
+      image: '/api/placeholder/400/256',
+      link: '#'
+    }
+  ];
+
   return (
-    <div className="welcome-container">
-      <Navigationbar />
-      {/* Background image container */}
-      <div className="background-image">
-        <Image src={IKN} alt="background 1"
-          className="background-img"
-        />
-        <Image src={Gradient} alt="background 2"
-          className="background-img overlay-image"
-        />
+    <main>
+      {/* Your original hero section */}
+      <div className="welcome-container">
+        <Navigationbar />
+        {/* Background image container */}
+        <div className="background-image">
+          <Image src={IKN} alt="background 1"
+            className="background-img"
+          />
+          <Image src={Gradient} alt="background 2"
+            className="background-img overlay-image"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="content-wrapper">
+          <h1 className="main-title">
+            Selamat Datang di <span className="highlight">Noesantara</span>
+          </h1>
+          <p className="subtitle">
+            Platform Smart City Ibu Kota Nusantara yang Terintegrasi
+          </p>
+        </div>
+
+        {/* Interactive dots and cards */}
+        <div className="floating-dots">
+          {dots.map((dot) => (
+            <div key={dot.id} className="dot-container" style={dot.position}>
+              <div
+                className={`dot ${activeCard === dot.id ? 'active' : ''}`}
+                onMouseEnter={() => setActiveCard(dot.id)}
+                onMouseLeave={() => setActiveCard(null)}
+              />
+              {activeCard === dot.id && (
+                <div className="info-card">
+                  <h3>{dot.title}</h3>
+                  <p>{dot.description}</p>
+                </div>
+              )}
+            </div>
+          ))}
+          <Scrollbutton />
+        </div>
       </div>
 
-      {/* Content */}
-      <div className="content-wrapper">
-        <h1 className="main-title">
-          Selamat Datang di <span className="highlight">Noesantara</span>
-        </h1>
-        <p className="subtitle">
-          Platform Smart City Ibu Kota Nusantara yang Terintegrasi
-        </p>
-      </div>
-
-      {/* Interactive dots and cards */}
-      <div className="floating-dots">
-        {dots.map((dot) => (
-          <div key={dot.id} className="dot-container" style={dot.position}>
-            <div
-              className={`dot ${activeCard === dot.id ? 'active' : ''}`}
-              onMouseEnter={() => setActiveCard(dot.id)}
-              onMouseLeave={() => setActiveCard(null)}
-            />
-            {activeCard === dot.id && (
-              <div className="info-card">
-                <h3>{dot.title}</h3>
-                <p>{dot.description}</p>
+      {/* New sections below */}
+      {/* Section 1: Sponsors/Collaborators */}
+      <section className="sponsors-section">
+        <div className="container">
+          <h2 className="section-subtitle">Kolaborasi</h2>
+          <h3 className="section-title">
+            Berbagai perusahaan yang berkolaborasi dalam mewujudkan Smart City IKN
+          </h3>
+          <div className="sponsors-grid">
+            {collaborators.map((collaborator, index) => (
+              <div key={index} className="sponsor-item">
+                <Image
+                  src={collaborator.logo}
+                  alt={`${collaborator.name} logo`}
+                  className="sponsor-logo"
+                />
               </div>
-            )}
+            ))}
           </div>
-        ))}
-        <Scrollbutton />
-      </div>
-    </div>
+        </div>
+      </section>
+
+      {/* Section 2: Vision Statement */}
+      <section className="vision-section">
+        <div className="vision-background">
+          <Image src={background} alt="background sec"
+            className="background-image"
+          />
+          <div className="background-overlay" />
+        </div>
+
+        <div className="container vision-content">
+          <div className="vision-text">
+            <h2 className="vision-title">
+              Sukseskan Nusantara
+            </h2>
+            <h3 className="vision-subtitle">
+              Kota Cerdas Masa Depan
+            </h3>
+            <p className="vision-description">
+              Bersama Kita!
+            </p>
+          </div>
+
+          <div className="vision-images">
+            <Image src={train} alt="train"
+              className="vision-image transport"
+            />
+            <Image src={buildings} alt="buildings"
+              className="vision-image building"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3: Public Services */}
+      <section className="services-section">
+        <div className="container">
+          <h2 className="section-subtitle">Layanan</h2>
+          <h3 className="section-title">
+            Layanan Publik Berbasis Digital
+          </h3>
+
+          <div className="services-header">
+            <p className="services-description">
+              Nikmati dan Gunakan Layanan Publik Untuk Segala Keperluan Anda
+            </p>
+            <button className="services-button">
+              5 Layanan Publik
+            </button>
+          </div>
+
+          <div className="services-grid">
+            {publicServices.map((service, index) => (
+              <div key={index} className="service-card">
+                <Image src={asn} alt="asn"
+                  className="service-image"
+                />
+                <div className="service-overlay">
+                  <div className="service-content">
+                    <h4 className="service-title">{service.title}</h4>
+                  </div>
+                </div>
+                <button className="service-expand-button">
+                  <svg
+                    className="expand-icon"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
   );
 };
 
