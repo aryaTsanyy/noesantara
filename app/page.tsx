@@ -189,9 +189,9 @@ const Home = () => {
 
       {/* Section 3: Public Services */}
       <section className="services-section">
-        <div className="container">
-          <h2 className="section-subtitle">Layanan</h2>
-          <h3 className="section-title">
+        <div className="services-container">
+          <h2 className="services-subtitle">Layanan</h2>
+          <h3 className="services-title">
             Layanan Publik Berbasis Digital
           </h3>
 

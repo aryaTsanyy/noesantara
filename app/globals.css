@@ -144,6 +144,17 @@ body {
   color: #074b5b;
 }
 
+html, body {
+  overflow-x: hidden; /* Cegah scrolling horizontal */
+  margin: 0; /* Pastikan tidak ada margin bawaan */
+  width: 100vw; /* Batasi lebar pada viewport */
+  touch-action: pan-y; /* Cegah gesture drag horizontal */
+}
+
+* {
+  box-sizing: border-box; /* Pastikan padding tidak menambah ukuran elemen */
+}
+
 /* Hero-Section */
 /* WelcomeSection.css */
 .welcome-container {
@@ -154,6 +165,7 @@ body {
   display: flex;
   align-items: center;
   padding: 0 4rem;
+  overflow-x: hidden;
 }
 
 .background-image {
@@ -299,16 +311,20 @@ body {
 
 .section-subtitle {
   text-align: center;
-  font-size: 0.875rem;
+  font-size: 16px;
   color: #0284c7;
   margin-bottom: 1rem;
+  font-family: "figtree-regular";
+  font-weight: 500;
 }
 
 .section-title {
   text-align: center;
-  font-size: 1.125rem;
+  font-size: 22px;
   color: #1f2937;
   margin-bottom: 2rem;
+  font-family: "figtree-regular";
+  font-weight: 600;
 }
 
 .sponsors-grid {
@@ -366,24 +382,30 @@ body {
 
 .vision-text {
   max-width: 32rem;
+  margin-left: 60px;
 }
 
 .vision-title {
-  font-size: 3rem;
-  font-weight: 700;
+  font-size: 1.875rem;
+  font-weight: 500;
   color: white;
   margin-bottom: 1rem;
+  font-family: "figtree-medium";
 }
 
 .vision-subtitle {
   font-size: 1.875rem;
+  font-weight: 500;
   color: white;
   margin-bottom: 0.75rem;
+  font-family: "figtree-medium";
 }
 
 .vision-description {
-  font-size: 1.5rem;
+  font-size: 1.875rem;
+  font-weight: 500;
   color: white;
+  font-family: "figtree-regular";
 }
 
 .vision-images {
@@ -403,24 +425,46 @@ body {
   width: 16rem;
   height: 16rem;
   border-radius: 9999px;
+  position: relative;
+  top: -8rem;
 }
 
 .vision-image.building {
   width: 12rem;
   height: 12rem;
   border-radius: 9999px;
-  margin-left: 3rem;
+  margin-left: 8rem;
+  position: relative;
+  top: -8rem;
 }
 
 /* Section 3: Services */
 .services-section {
-  background-color: #f9fafb;
+  background-color: #292E41;
   padding: 4rem 1rem;
 }
 
 .services-header {
   text-align: center;
   margin-bottom: 2rem;
+}
+
+.services-subtitle {
+  text-align: center;
+  font-size: 16px;
+  color: #0284c7;
+  margin-bottom: 1rem;
+  font-family: "figtree-regular";
+  font-weight: 500;
+}
+
+.services-title {
+  text-align: center;
+  font-size: 40px;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  font-family: "figtree-regular";
+  font-weight: 600;
 }
 
 .services-description {
