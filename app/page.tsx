@@ -3,7 +3,7 @@ import { IKN } from "@/app/images/hero-section";
 import { Gradient } from "@/app/images/hero-section";
 import Image from 'next/image';
 import { Navigationbar } from "@/components/navbar";
-import { AWS, cisco, esri, honeywell, ibm, motorolla, microsoft, background, train, buildings, asn, bpjs, investasi } from "@/app/images/all-section";
+import { AWS, cisco, esri, honeywell, ibm, motorolla, microsoft, background, train, buildings, asn, bpjs, investasi, iknow, mpp } from "@/app/images/all-section";
 
 
 
@@ -68,21 +68,31 @@ const Home = () => {
     { name: 'Microsoft', logo: microsoft }
   ];
 
-  const publicServices = [
+  const services = [
     {
-      title: 'Smart ASN',
-      image: '/api/placeholder/400/256',
-      link: '#'
+      title: "SmartASN",
+      description: "Aplikasi SmartASN bertujuan untuk meningkatkan efisiensi dan kualitas pelayanan asn.",
+      image: asn,
     },
     {
-      title: 'BPJS Kesehatan',
-      image: '/api/placeholder/400/256',
-      link: '#'
+      title: "BPJS Kesehatan",
+      description: "Layanan kesehatan terpadu untuk masyarakat Indonesia.",
+      image: bpjs,
     },
     {
-      title: 'Layanan Investasi',
-      image: '/api/placeholder/400/256',
-      link: '#'
+      title: "IKNOW",
+      description: "Pusat informasi dan layanan pengetahuan terintegrasi.",
+      image: iknow,
+    },
+    {
+      title: "Investara",
+      description: "Platform investasi digital untuk semua kalangan.",
+      image: investasi,
+    },
+    {
+      title: "MPP",
+      description: "Mal Pelayanan Publik untuk kemudahan layanan masyarakat.",
+      image: mpp,
     }
   ];
 
@@ -195,24 +205,63 @@ const Home = () => {
             Layanan Publik Berbasis Digital
           </h3>
 
-          <div className="services-header">
-            <p className="services-description">
-              Nikmati dan Gunakan Layanan Publik Untuk Segala Keperluan Anda
-            </p>
-            <button className="services-button">
-              5 Layanan Publik
-            </button>
-          </div>
-
           <div className="services-grid">
-            {publicServices.map((service, index) => (
-              <div key={index} className="service-card">
-                <Image src={asn} alt="asn"
+            <div className="services-left">
+              {services.slice(0, 2).map((service, index) => (
+                <div key={index} className="service-card">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    className="service-image"
+                    width={400}
+                    height={256}
+                  />
+                  <div className="service-overlay">
+                    <div className="service-content">
+                      <h4 className="service-title">{service.title}</h4>
+                      <p className="service-description">{service.description}</p>
+                    </div>
+                  </div>
+                  <button className="service-expand-button">
+                    <svg
+                      className="expand-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            <div className="services-center">
+              <div className="services-header">
+                <p className="services-description">
+                  Nikmati dan Gunakan Layanan Publik Untuk Segala Keperluan Anda
+                </p>
+                <button className="services-button">
+                  5 Layanan Publik
+                </button>
+              </div>
+              <div className="service-card">
+                <Image
+                  src={services[2].image}
+                  alt={services[2].title}
                   className="service-image"
+                  width={400}
+                  height={256}
                 />
                 <div className="service-overlay">
                   <div className="service-content">
-                    <h4 className="service-title">{service.title}</h4>
+                    <h4 className="service-title">{services[2].title}</h4>
+                    <p className="service-description">{services[2].description}</p>
                   </div>
                 </div>
                 <button className="service-expand-button">
@@ -231,7 +280,42 @@ const Home = () => {
                   </svg>
                 </button>
               </div>
-            ))}
+            </div>
+
+            <div className="services-right">
+              {services.slice(3).map((service, index) => (
+                <div key={index} className="service-card">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    className="service-image"
+                    width={400}
+                    height={256}
+                  />
+                  <div className="service-overlay">
+                    <div className="service-content">
+                      <h4 className="service-title">{service.title}</h4>
+                      <p className="service-description">{service.description}</p>
+                    </div>
+                  </div>
+                  <button className="service-expand-button">
+                    <svg
+                      className="expand-icon"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

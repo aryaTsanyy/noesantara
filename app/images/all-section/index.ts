@@ -41,3 +41,9 @@ export { bpjs };
 
 import investasi from "./investasi.svg"
 export { investasi };
+
+import iknow from "./iknow.svg"
+export { iknow };
+
+import mpp from "./mpp.svg"
+export { mpp };
