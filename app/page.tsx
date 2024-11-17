@@ -97,7 +97,7 @@ const Home = () => {
             className="background-img"
           />
           <Image src={Gradient} alt="background 2"
-            className="background-img overlay-image"
+            className="overlay-image"
           />
         </div>
 
