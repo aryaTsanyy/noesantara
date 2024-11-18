@@ -5,9 +5,10 @@ import Image from 'next/image';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Navigationbar } from "@/components/navbar";
-import { AWS, cisco, esri, honeywell, ibm, motorolla, microsoft, background, train, buildings, asn, bpjs, investasi, iknow, mpp } from "@/app/images/all-section";
+import { AWS, cisco, esri, honeywell, ibm, motorolla, microsoft, background, train, buildings, asn, bpjs, investasi, iknow, mpp, appStore, arrowLeft, arrowRight, berita1, berita2, berita3, berita4, berita5, berita6, berita7, facebook, facebookHover, googlePlay, instagram, instagramHover, lihatSemua, logoFooter, twitter, twitterHover, youtube, youtubeHover, backgroundBatik2 } from "@/app/images/all-section";
 import React, { useEffect, useState } from 'react';
 import { Scrollbutton } from "@/components/button";
+import { StaticImageData } from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,9 +23,80 @@ interface DotInfo {
   };
 }
 
+// Interface untuk tipe data slide
+interface BeritaSlide {
+  image: StaticImageData;
+  type: string;
+  description: string;
+}
+
 const Home = () => {
   const [activeCard, setActiveCard] = useState<number | null>(null);
   const [selectedLanguage, setSelectedLanguage] = useState<"ID" | "EN">("ID");
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [activeLine, setActiveLine] = useState(0);
+
+  const beritaSlides: BeritaSlide[] = [
+    {
+      image: berita1,
+      type: "Berita",
+      description: "Bandara Nusantara IKN resmi terdaftar Internasional"
+    },
+    {
+      image: berita2,
+      type: "Informasi",
+      description: "Cara menggunakan layanan transportasi publik ART"
+    },
+    {
+      image: berita3,
+      type: "Informasi",
+      description: "Begini cara mengikuti kursus di aplikasi SmartASN"
+    },
+    {
+      image: berita4,
+      type: "Berita",
+      description: "Update pembangunan infrastruktur di IKN"
+    },
+    {
+      image: berita5,
+      type: "Informasi",
+      description: "Panduan lengkap perizinan usaha di IKN"
+    },
+    {
+      image: berita6,
+      type: "Berita",
+      description: "Program pengembangan SDM di IKN"
+    },
+    {
+      image: berita7,
+      type: "Informasi",
+      description: "Fasilitas kesehatan modern di IKN"
+    }
+  ];
+
+  const nextSlide = (): void => {
+    setCurrentIndex((prevIndex) => {
+      const newIndex = prevIndex >= beritaSlides.length - 3 ? 0 : prevIndex + 1;
+      setActiveLine(newIndex);
+      return newIndex;
+    });
+  };
+
+  const prevSlide = (): void => {
+    setCurrentIndex((prevIndex) => {
+      const newIndex = prevIndex <= 0 ? beritaSlides.length - 3 : prevIndex - 1;
+      setActiveLine(newIndex);
+      return newIndex;
+    });
+  };
+
+  const goToSlide = (index: number): void => {
+    setCurrentIndex(index);
+    setActiveLine(index);
+  };
+
+  const totalPages = beritaSlides.length - 2;
 
   const handleLanguageChange = (language: "ID" | "EN") => {
     setSelectedLanguage(language);
@@ -73,7 +145,7 @@ const Home = () => {
 
     // Calculate total width of all items
     const totalWidth = scrollingText.reduce((sum, el) => sum + el.offsetWidth + 32, 0); // 32px for gap (2rem)
-    
+
     // Set initial position
     gsap.set(scrollingText, {
       x: (i) => i * (totalWidth / scrollingText.length)
@@ -319,6 +391,76 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Section 5: Informasi */}
+      <section className="information-section">
+        <div className="informationCarousel">
+          <div className="controlArea">
+            {/* Modifikasi indikator untuk menggunakan div terpisah */}
+            <div className="indicators">
+              {[...Array(totalPages)].map((_, index) => (
+                <div
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={index === activeLine ? 'lineActive' : 'line'}
+                ></div>
+              ))}
+            </div>
+            <div className="buttonControl">
+              <button className="arrowLeft" onClick={prevSlide}>
+                <Image src={arrowLeft} alt="arrowLeft"
+                  className="arrowBerita"
+                />
+              </button>
+              <button className="arrowRight" onClick={nextSlide}>
+                <Image src={arrowRight} alt="arrowRight"
+                  className="arrowBerita"
+                />
+              </button>
+            </div>
+          </div>
+          <div className="carouselViewport">
+            <div className="beritaInformasi"
+              style={{
+                transform: `translateX(-${currentIndex * 14.40}%)`,
+                transition: 'transform 0.5s ease-in-out',
+                display: 'flex',
+                width: `${(beritaSlides.length / 3) * 100}%`,
+              }}>
+              {beritaSlides.map((slide, index) => (
+                <div key={index} className="boxBerita" style={{ width: '33.33%' }}>
+                  <Image
+                    src={slide.image}
+                    alt="berita"
+                    className="thumbnailBerita"
+                  />
+                  <div className="gradasiBerita"></div>
+                  <div className="spesifikasi">
+                    <p>{slide.type}</p>
+                  </div>
+                  <p className="deskripsiBerita">{slide.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="informationText">
+          <div className="highlightInformasi">
+            <p>Informasi</p>
+          </div>
+          <h1 className="judulInformasi">Informasi & Berita Terkini</h1>
+          <p className="deskripsiBeritaInformasi">Ikuti terus perkembangan terbaru dari Ibu Kota Nusantara. Temukan berita-berita hangat, update kebijakan, kemajuan infrastruktur, dan program menarik yang menjadikan IKN sebagai kota modern dan berkelanjutan di Indonesia.</p>
+          <button className="buttonLihat">
+            <p>Lihat semua</p>
+            <Image src={lihatSemua} alt="lihatSemua"
+              className="lihatSemua"
+            />
+          </button>
+        </div>
+      </section>
+      <Image src={backgroundBatik2} alt="backgroundBatik2"
+        className="backgroundBatik2"
+      />
     </main>
   );
 };
