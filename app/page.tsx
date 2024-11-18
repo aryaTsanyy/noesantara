@@ -2,14 +2,14 @@
 import { IKN } from "@/app/images/hero-section";
 import { Gradient } from "@/app/images/hero-section";
 import Image from 'next/image';
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Navigationbar } from "@/components/navbar";
 import { AWS, cisco, esri, honeywell, ibm, motorolla, microsoft, background, train, buildings, asn, bpjs, investasi, iknow, mpp } from "@/app/images/all-section";
-
-
-
-// WelcomeSection.tsx
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Scrollbutton } from "@/components/button";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface DotInfo {
   id: number;
@@ -24,6 +24,11 @@ interface DotInfo {
 
 const Home = () => {
   const [activeCard, setActiveCard] = useState<number | null>(null);
+  const [selectedLanguage, setSelectedLanguage] = useState<"ID" | "EN">("ID");
+
+  const handleLanguageChange = (language: "ID" | "EN") => {
+    setSelectedLanguage(language);
+  };
 
   const dots: DotInfo[] = [
     {
@@ -57,6 +62,53 @@ const Home = () => {
       position: { top: "20%", left: "40%" }
     }
   ];
+
+  // Modified infinite scroll implementation
+  useEffect(() => {
+    const container = document.querySelector('.sponsors-grid') as HTMLElement;
+    if (!container) return;
+
+    const scrollingText = gsap.utils.toArray(".sponsor-item") as HTMLElement[];
+    if (scrollingText.length === 0) return;
+
+    // Calculate total width of all items
+    const totalWidth = scrollingText.reduce((sum, el) => sum + el.offsetWidth + 32, 0); // 32px for gap (2rem)
+    
+    // Set initial position
+    gsap.set(scrollingText, {
+      x: (i) => i * (totalWidth / scrollingText.length)
+    });
+
+    // Create the animation
+    const tl = gsap.timeline({
+      repeat: -1,
+      defaults: { ease: "none" }
+    });
+
+    tl.to(scrollingText, {
+      x: `-=${totalWidth}`,
+      duration: 20,
+      ease: "none",
+      modifiers: {
+        x: gsap.utils.unitize(x => parseFloat(x) % totalWidth)
+      }
+    });
+
+    // Create scroll trigger
+    const st = ScrollTrigger.create({
+      trigger: ".sponsors-section",
+      start: "top bottom",
+      end: "bottom top",
+      onUpdate: (self) => {
+        tl.timeScale(self.direction === 1 ? 1 : -1);
+      },
+    });
+
+    return () => {
+      tl.kill();
+      st.kill();
+    };
+  }, []);
 
   const collaborators = [
     { name: 'AWS', logo: AWS },
@@ -98,20 +150,14 @@ const Home = () => {
 
   return (
     <main>
-      {/* Your original hero section */}
+      {/* Hero Section */}
       <div className="welcome-container">
         <Navigationbar />
-        {/* Background image container */}
         <div className="background-image">
-          <Image src={IKN} alt="background 1"
-            className="background-img"
-          />
-          <Image src={Gradient} alt="background 2"
-            className="overlay-image"
-          />
+          <Image src={IKN} alt="background 1" className="background-img" />
+          <Image src={Gradient} alt="background 2" className="overlay-image" />
         </div>
 
-        {/* Content */}
         <div className="content-wrapper">
           <h1 className="main-title">
             Selamat Datang di <span className="highlight">Noesantara</span>
@@ -121,7 +167,6 @@ const Home = () => {
           </p>
         </div>
 
-        {/* Interactive dots and cards */}
         <div className="floating-dots">
           {dots.map((dot) => (
             <div key={dot.id} className="dot-container" style={dot.position}>
@@ -142,68 +187,55 @@ const Home = () => {
         </div>
       </div>
 
-      {/* New sections below */}
-      {/* Section 1: Sponsors/Collaborators */}
+      {/* Sponsors Section */}
       <section className="sponsors-section">
         <div className="container">
           <h2 className="section-subtitle">Kolaborasi</h2>
           <h3 className="section-title">
             Berbagai perusahaan yang berkolaborasi dalam mewujudkan Smart City IKN
           </h3>
-          <div className="sponsors-grid">
-            {collaborators.map((collaborator, index) => (
-              <div key={index} className="sponsor-item">
-                <Image
-                  src={collaborator.logo}
-                  alt={`${collaborator.name} logo`}
-                  className="sponsor-logo"
-                />
-              </div>
-            ))}
+          <div className="sponsors-wrapper">
+            <div className="sponsors-grid flex items-center py-7">
+              {collaborators.map((collaborator, index) => (
+                <div key={index} className="sponsor-item">
+                  <Image
+                    src={collaborator.logo}
+                    alt={`${collaborator.name} logo`}
+                    className="sponsor-logo"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Section 2: Vision Statement */}
+      {/* Vision Section */}
       <section className="vision-section">
         <div className="vision-background">
-          <Image src={background} alt="background sec"
-            className="background-image"
-          />
+          <Image src={background} alt="background sec" className="background-image" />
           <div className="background-overlay" />
         </div>
 
         <div className="container vision-content">
           <div className="vision-text">
-            <h2 className="vision-title">
-              Sukseskan Nusantara
-            </h2>
-            <h3 className="vision-subtitle">
-              Kota Cerdas Masa Depan
-            </h3>
-            <p className="vision-description">
-              Bersama Kita!
-            </p>
+            <h2 className="vision-title">Sukseskan Nusantara</h2>
+            <h3 className="vision-subtitle">Kota Cerdas Masa Depan</h3>
+            <p className="vision-description">Bersama Kita!</p>
           </div>
 
           <div className="vision-images">
-            <Image src={train} alt="train"
-              className="vision-image transport"
-            />
-            <Image src={buildings} alt="buildings"
-              className="vision-image building"
-            />
+            <Image src={train} alt="train" className="vision-image transport" />
+            <Image src={buildings} alt="buildings" className="vision-image building" />
           </div>
         </div>
       </section>
 
-      {/* Section 3: Public Services */}
+      {/* Services Section */}
       <section className="services-section">
         <div className="services-container">
           <h2 className="services-subtitle">Layanan</h2>
-          <h3 className="services-title">
-            Layanan Publik Berbasis Digital
-          </h3>
+          <h3 className="services-title">Layanan Publik Berbasis Digital</h3>
 
           <div className="services-grid">
             <div className="services-left">
@@ -223,18 +255,8 @@ const Home = () => {
                     </div>
                   </div>
                   <button className="service-expand-button">
-                    <svg
-                      className="expand-icon"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                      />
+                    <svg className="expand-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
                 </div>
@@ -246,9 +268,7 @@ const Home = () => {
                 <p className="services-description">
                   Nikmati dan Gunakan Layanan Publik Untuk Segala Keperluan Anda
                 </p>
-                <button className="services-button">
-                  5 Layanan Publik
-                </button>
+                <button className="services-button">5 Layanan Publik</button>
               </div>
               <div className="service-card">
                 <Image
@@ -265,18 +285,8 @@ const Home = () => {
                   </div>
                 </div>
                 <button className="service-expand-button">
-                  <svg
-                    className="expand-icon"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
+                  <svg className="expand-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
               </div>
@@ -299,18 +309,8 @@ const Home = () => {
                     </div>
                   </div>
                   <button className="service-expand-button">
-                    <svg
-                      className="expand-icon"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                      />
+                    <svg className="expand-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
                 </div>

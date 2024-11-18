@@ -312,7 +312,7 @@ body {
 /* Section 1: Sponsors */
 .sponsors-section {
   background-color: white;
-  padding: 2rem 1rem;
+  padding: 4rem 4rem;
 }
 
 .section-subtitle {
@@ -339,6 +339,9 @@ body {
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
 }
 
 .sponsor-item {
@@ -351,6 +354,24 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+.sponsors-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.sponsor-logo {
+  height: auto;
+  width: 100%;
+  max-width: 150px; /* Sesuaikan dengan kebutuhan */
+  object-fit: contain;
+}
+
+.sponsors-section {
+  position: relative;
+  z-index: 1;
 }
 
 /* Section 2: Vision */
@@ -447,7 +468,7 @@ body {
 /* Section 3: Services */
 .services-section {
   padding: 4rem 0;
-  background-color: #292E41;
+  background-color: #292e41;
 }
 
 .services-container {
@@ -483,7 +504,7 @@ body {
 
 .services-description {
   font-size: 18px;
-  color: #074B5B;
+  color: #074b5b;
   margin-bottom: 1rem;
 }
 
@@ -507,10 +528,11 @@ body {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   gap: 2rem;
-  flex-wrap: wrap; /* Pastikan responsif */ 
+  flex-wrap: wrap; /* Pastikan responsif */
 }
 
-.services-left, .services-right {
+.services-left,
+.services-right {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -594,11 +616,11 @@ body {
   .services-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .services-center {
     width: 100%;
   }
-  
+
   .service-card {
     height: 300px;
   }
