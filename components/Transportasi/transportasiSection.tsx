@@ -1,6 +1,5 @@
 /** @format */
 "use client";
-import { Train, Tree } from "@/app/images/collab";
 import { ikntrain, traintwo } from "@/app/images/transportasi";
 import Image from "next/image";
 // components/TransportationSection.tsx
