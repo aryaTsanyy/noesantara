@@ -56,7 +56,6 @@ const TransportationSection: React.FC = () => {
               <div className="w-20 h-20 bg-cover rounded-full border-4 border-gray-600" style={{ backgroundImage: `url('https://example.com/image1.jpg')` }}></div>
               <div className="w-20 h-20 bg-cover rounded-full border-4 border-gray-600" style={{ backgroundImage: `url('https://example.com/image2.jpg')` }}></div>
             </div>
-            <div className="w-56 h-32 bg-cover rounded-lg" style={{ backgroundImage: `url('https://example.com/image3.jpg')` }}></div>
           </div>
         </div>
       </div>
