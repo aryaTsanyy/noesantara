@@ -19,7 +19,7 @@ const sectionVariants = {
 
 const Home = () => {
   return (
-    <main className="Neosantara overflow-hidden">
+    <main className="Neosantara overflow-hidden overx">
       <Navigationbar />
       <motion.section className="hero Visi-Misi animate-fadeInUp min-h-screen w-full" id="Visi-Misi" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={sectionVariants}>
         <HeroSection />
