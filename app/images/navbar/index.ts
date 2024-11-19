@@ -1,4 +1,6 @@
 /** @format */
 
 import Logo from "./Neosantara-logo.png";
-export { Logo };
+import ArrowTop from "./arrow-top.png";
+import ArrowBottom from "./arrow-bottom.png";
+export { Logo, ArrowTop, ArrowBottom };

@@ -4,6 +4,7 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
+import { ArrowBottom, ArrowTop } from "@/app/images/navbar";
 
 type Language = "ID" | "EN";
 
@@ -29,10 +30,16 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({ selectedLanguage, o
 
   return (
     <div className="relative w-full dropdown-language rounded-full">
-      <button onClick={toggleDropdown} className="text-white rounded-full flex items-center justify-center focus:outline-none">
-        <Image src={flagSrc(selectedLanguage)} alt={`${selectedLanguage} flag`} width={20} height={20} className="mr-2" />
-        <span>{selectedLanguage}</span>
-        <span className="ml-1">{isOpen ? "▲" : "▼"}</span>
+      <button onClick={toggleDropdown} className="text-white text-center rounded-full flex items-center justify-center focus:outline-none">
+        <Image src={flagSrc(selectedLanguage)} alt={`${selectedLanguage} flag`} width={20} height={20} className="mr-1 flex items-center justify-center" />
+        <span className="flex items-center justify-center text-center">{selectedLanguage}</span>
+        <Image
+          src={isOpen ? ArrowTop : ArrowBottom}
+          alt="Dropdown arrow"
+          width={15} // Sesuaikan ukuran arrow
+          height={15}
+          className="ml-2"
+        />
       </button>
 
       {isOpen && (
