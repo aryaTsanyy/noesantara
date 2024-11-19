@@ -5,6 +5,7 @@
 @tailwind utilities;
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 :root {
@@ -412,7 +413,11 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(0deg, rgba(0, 115, 153, 0.8) 0%, rgba(0, 115, 153, 0) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 115, 153, 0.8) 0%,
+    rgba(0, 115, 153, 0) 100%
+  );
   color: #fff;
   padding: 20px;
   box-sizing: border-box;
@@ -763,7 +768,11 @@ body {
 }
 
 .gradasiBerita {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
   position: absolute;
   display: flex;
   z-index: 1000;
@@ -926,50 +935,49 @@ body {
   }
 
   .subtitle {
+    .desc-hero h3 {
+      font-size: 0.875rem;
+    }
 
-  .desc-hero h3 {
-    font-size: 0.875rem;
+    .ikn-bg img {
+      width: 75%;
+    }
+
+    .container-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .right-hero {
+      margin-top: 1rem;
+    }
   }
 
-  .ikn-bg img {
-    width: 75%;
-  }
+  @media (max-width: 480px) {
+    .hero-container {
+      margin: 0 1rem;
+      padding: 2rem 0;
+    }
 
-  .container-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+    .title-hero h1,
+    .title-hero span {
+      font-size: 1.25rem;
+    }
 
-  .right-hero {
-    margin-top: 1rem;
-  }
-}
+    .desc-hero h3 {
+      font-size: 0.75rem;
+    }
 
-@media (max-width: 480px) {
-  .hero-container {
-    margin: 0 1rem;
-    padding: 2rem 0;
-  }
+    .ikn-bg img {
+      width: 66%;
+    }
 
-  .title-hero h1,
-  .title-hero span {
-    font-size: 1.25rem;
-  }
+    .right-hero {
+      margin-top: 0.5rem;
+    }
 
-  .desc-hero h3 {
-    font-size: 0.75rem;
+    .scrollbutton {
+      transform: scale(0.75);
+    }
   }
-
-  .ikn-bg img {
-    width: 66%;
-  }
-
-  .right-hero {
-    margin-top: 0.5rem;
-  }
-
-  .scrollbutton {
-    transform: scale(0.75);
-  }
-}
 }

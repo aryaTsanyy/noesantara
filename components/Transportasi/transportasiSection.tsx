@@ -1,23 +1,26 @@
 /** @format */
 "use client";
+import { Train, Tree } from "@/app/images/collab";
+import { ikntrain, traintwo } from "@/app/images/transportasi";
+import Image from "next/image";
 // components/TransportationSection.tsx
 import React, { useState } from "react";
 
 const TransportationSection: React.FC = () => {
   const [activeButton, setActiveButton] = useState<"ART" | "MLO">("ART");
   const [description, setDescription] = useState<string>(
-    `<span class="highlight">Autonomous Rail Transit</span> adalah sistem transportasi publik cerdas berbasis kendaraan otonom yang menyerupai bus namun beroperasi tanpa rel dan tanpa pengemudi. Kendaraan ini dirancang untuk memberikan layanan transportasi yang efisien, ramah lingkungan, dan membantu menghubungkan berbagai titik penting secara cepat menggunakan teknologi modern kecerdasan buatan.`
+    `Autonomous Rail Transit adalah sistem transportasi publik cerdas berbasis kendaraan otonom yang menyerupai bus namun beroperasi tanpa rel dan tanpa pengemudi. Kendaraan ini dirancang untuk memberikan layanan transportasi yang efisien, ramah lingkungan, dan membantu menghubungkan berbagai titik penting secara cepat menggunakan teknologi modern kecerdasan buatan.`
   );
 
   const handleButtonClick = (button: "ART" | "MLO") => {
     setActiveButton(button);
     if (button === "ART") {
       setDescription(
-        `<span class="highlight">Autonomous Rail Transit</span> adalah sistem transportasi publik cerdas berbasis kendaraan otonom yang menyerupai bus namun beroperasi tanpa rel dan tanpa pengemudi. Kendaraan ini dirancang untuk memberikan layanan transportasi yang efisien, ramah lingkungan, dan membantu menghubungkan berbagai titik penting secara cepat menggunakan teknologi modern kecerdasan buatan.`
+        `Autonomous Rail Transit adalah sistem transportasi publik cerdas berbasis kendaraan otonom yang menyerupai bus namun beroperasi tanpa rel dan tanpa pengemudi. Kendaraan ini dirancang untuk memberikan layanan transportasi yang efisien, ramah lingkungan, dan membantu menghubungkan berbagai titik penting secara cepat menggunakan teknologi modern kecerdasan buatan.`
       );
     } else {
       setDescription(
-        `<span class="highlight">Mobil Listrik Otonom</span> adalah kendaraan ramah lingkungan yang menggunakan teknologi listrik dan kecerdasan buatan untuk bergerak secara otomatis tanpa pengemudi. Kendaraan ini dirancang untuk mengurangi emisi karbon dan memberikan pengalaman berkendara yang aman dan efisien.`
+        `Mobil Listrik Otonom adalah kendaraan ramah lingkungan yang menggunakan teknologi listrik dan kecerdasan buatan untuk bergerak secara otomatis tanpa pengemudi. Kendaraan ini dirancang untuk mengurangi emisi karbon dan memberikan pengalaman berkendara yang aman dan efisien.`
       );
     }
   };
@@ -45,16 +48,27 @@ const TransportationSection: React.FC = () => {
                 </button>
               </div>
               <div className="description">
-                <p className="typing">{description}</p>
+                <p className="typing text-justify">{description}</p>
               </div>
             </div>
           </div>
 
           {/* Images Section */}
-          <div className="mt-8 flex items-center justify-between">
-            <div className="flex space-x-4">
-              <div className="w-20 h-20 bg-cover rounded-full border-4 border-gray-600" style={{ backgroundImage: `url('https://example.com/image1.jpg')` }}></div>
-              <div className="w-20 h-20 bg-cover rounded-full border-4 border-gray-600" style={{ backgroundImage: `url('https://example.com/image2.jpg')` }}></div>
+          <div className="right-Collab mr-14 relative w-1/2 flex flex-col">
+            <div className="top-Right flex justify-end relative h-full">
+              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none" className="absolute right-80 animate-float-slow">
+                <circle cx="25" cy="25" r="25" fill="#59D6FF" />
+              </svg>
+              <Image src={traintwo} alt="Train" width={250} height={250} className="mr-20 animate-float-medium" />
+              <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none" className="absolute top-40 right-5 animate-float-fast">
+                <circle cx="30" cy="30" r="30" fill="#59D6FF" />
+              </svg>
+            </div>
+            <div className="bottom-Right relative flex justify-end items-center h-full">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" className="mr-20 animate-float-slow">
+                <circle cx="10" cy="10" r="10" fill="#59D6FF" />
+              </svg>
+              <Image src={ikntrain} alt="Tree" width={200} height={200} className="items-end animate-float-fast" />
             </div>
           </div>
         </div>

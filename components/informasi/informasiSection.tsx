@@ -119,7 +119,7 @@ const InformasiSection = () => {
           <p>Informasi</p>
         </div>
         <h1 className="judulInformasi">Informasi & Berita Terkini</h1>
-        <p className="deskripsiBeritaInformasi">
+        <p className="deskripsiBeritaInformasi text-justify">
           Ikuti terus perkembangan terbaru dari Ibu Kota Nusantara. Temukan berita-berita hangat, update kebijakan, kemajuan infrastruktur, dan program menarik yang menjadikan IKN sebagai kota modern dan berkelanjutan di Indonesia.
         </p>
         <button className="buttonLihat">
