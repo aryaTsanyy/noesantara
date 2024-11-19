@@ -10,8 +10,7 @@ import { LayananPublik } from "@/components/layananpublik";
 import { Navigationbar } from "@/components/navbar";
 import { TransportationSection } from "@/components/Transportasi";
 import Image from "next/image";
-
-import { BackgroundBatik2 } from "./images";
+import { Backgroundbatik2 } from "./images";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -43,7 +42,7 @@ const Home = () => {
         <InformasiSection />
       </motion.section>
 
-      <Image src={BackgroundBatik2} alt="Background Batik" />
+      <Image src={Backgroundbatik2} alt="Background Batik" />
 
       <footer>
         <FooterContent />
