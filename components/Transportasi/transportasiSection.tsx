@@ -54,8 +54,8 @@ const TransportationSection: React.FC = () => {
           </div>
 
           {/* Images Section */}
-          <div className="right-Collab mr-14 relative w-1/2 flex flex-col">
-            <div className="top-Right flex justify-end relative h-full">
+          <div className="right-Collab mr-14 relative w-1/2 flex -m-52 flex-col">
+            <div className="top-Right flex justify-end items-start relative h-full ">
               <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none" className="absolute right-80 animate-float-slow">
                 <circle cx="25" cy="25" r="25" fill="#59D6FF" />
               </svg>
