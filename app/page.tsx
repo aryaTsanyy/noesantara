@@ -2,10 +2,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-console.log(motion);
 import { CollabBottom, CollabSection } from "@/components/collaboration";
-console.log(CollabBottom);
-console.log(CollabSection);
 import { FooterContent } from "@/components/footer";
 import { HeroSection } from "@/components/hero";
 import { InformasiSection } from "@/components/informasi";
