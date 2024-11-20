@@ -11,6 +11,7 @@ type Language = "ID" | "EN";
 interface LanguageDropdownProps {
   selectedLanguage: Language;
   onSelectLanguage: (language: Language) => void;
+  isScrolled?: boolean;
 }
 
 const LanguageDropdown: React.FC<LanguageDropdownProps> = ({ selectedLanguage, onSelectLanguage }) => {
@@ -36,8 +37,8 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({ selectedLanguage, o
         <Image
           src={isOpen ? ArrowTop : ArrowBottom}
           alt="Dropdown arrow"
-          width={15} // Sesuaikan ukuran arrow
-          height={15}
+          width={30} // Sesuaikan ukuran arrow
+          height={30}
           className="ml-2"
         />
       </button>
