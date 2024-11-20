@@ -2,10 +2,18 @@
 
 import React from "react";
 
-const scrollbutton = () => {
+const ScrollButton = () => {
+  const handleScroll = () => {
+    const collabSection = document.getElementById("Kolaborasi");
+    collabSection?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <button className="btn-next px-4 h-full pb-3">
-      <div className="text flex flex-col items-center pt-5 pb-3">
+    <button 
+      className="btn-next px-2 h-full pb-3"
+      onClick={handleScroll}
+    >
+      <div className="text flex flex-col items-center pt-5 pb-3 text-xs">
         <span>L</span>
         <span>A</span>
         <span>N</span>
@@ -21,4 +29,4 @@ const scrollbutton = () => {
   );
 };
 
-export default scrollbutton;
+export default ScrollButton;

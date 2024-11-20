@@ -1,6 +1,6 @@
 /** @format */
 "use client";
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Logo } from "@/app/images/navbar";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -10,34 +10,48 @@ import LanguageDropdown from "./languageDropdown";
 const Navigationbar = () => {
   const [selectedLanguage, setSelectedLanguage] = useState<"ID" | "EN">("ID");
   const [isScrolled, setIsScrolled] = useState(false);
+  const [active, setActive] = useState<string>("Visi-Misi");
+  const sectionsRef = useRef<{ [key: string]: HTMLElement }>({});
 
   const handleLanguageChange = (language: "ID" | "EN") => {
     setSelectedLanguage(language);
   };
-  const [active, setActive] = useState<string>("Visi-Misi");
 
   const handleScroll = useCallback(() => {
     const sections = ["Visi-Misi", "Kolaborasi", "Layanan", "Transportasi", "Informasi"];
-    let currentSection = sections[0];
-
-    // Check if page is scrolled
     const scrolled = window.scrollY > 0;
     setIsScrolled(scrolled);
 
-    sections.forEach((section) => {
-      const sectionElement = document.getElementById(section);
+    // Improved section detection logic
+    for (const section of sections) {
+      const sectionElement = sectionsRef.current[section];
       if (sectionElement) {
         const rect = sectionElement.getBoundingClientRect();
-        if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
-          currentSection = section;
+        const windowHeight = window.innerHeight;
+        
+        // More precise section detection
+        if (
+          rect.top <= windowHeight * 0.3 && 
+          rect.bottom >= windowHeight * 0.3
+        ) {
+          setActive(section);
+          break;
         }
       }
-    });
-
-    setActive(currentSection);
+    }
   }, []);
 
   useEffect(() => {
+    const sections = ["Visi-Misi", "Kolaborasi", "Layanan", "Transportasi", "Informasi"];
+    
+    // Store references to section elements
+    sections.forEach(section => {
+      const element = document.getElementById(section);
+      if (element) {
+        sectionsRef.current[section] = element;
+      }
+    });
+
     handleScroll();
     window.addEventListener("scroll", handleScroll);
 
@@ -47,6 +61,7 @@ const Navigationbar = () => {
   const scrollToSection = (section: string) => {
     const sectionElement = document.getElementById(section);
     if (sectionElement) {
+      setActive(section);  // Immediately set active state
       sectionElement.scrollIntoView({ behavior: "smooth" });
     }
   };
@@ -93,7 +108,11 @@ const Navigationbar = () => {
             </div>
 
             <div className="absolute right-0 flex items-center gap-3 sm:static sm:ml-6 sm:pr-0 sm:gap-3">
-              <LanguageDropdown selectedLanguage={selectedLanguage} onSelectLanguage={handleLanguageChange} />
+              <LanguageDropdown 
+                selectedLanguage={selectedLanguage} 
+                onSelectLanguage={handleLanguageChange} 
+                isScrolled={isScrolled} 
+              />
               <button className={`btn-login font-semibold transition-colors duration-300 
                 ${isScrolled 
                   ? 'bg-[#007399] !text-white hover:bg-[#005d7a]'

@@ -14,21 +14,22 @@ const heroSection = () => {
           <Image src={IknIMG} alt="ikn" className="z-10" />
         </div>
       </div>
-      <div className="hero-container z-50 h-screen flex flex-col mx-14 py-20 justify-end">
-        <div className="container-top w-full h-full z-50 relative">
+      <div className="hero-container z-30 h-screen flex flex-col mx-14 py-20 justify-end">
+        <div className="container-top w-full h-full z-30 relative">
           <HeroPopup />
         </div>
-        <div className="container-bottom flex items-center justify-between z-50">
-          <div className="left-hero flex flex-col">
-            <div className="title-hero flex items-center gap-4">
-              <h1>Selamat Datang di</h1>
-              <span>Noesantara</span>
-            </div>
-            <div className="desc-hero">
-              <h3>Platform Smart City Ibu Kota Nusantara yang Terintegrasi </h3>
-            </div>
+        <div className="container-bottom flex items-left justify-between z-30">
+        <div className="left-hero flex flex-col mt-20 text-left">
+          <div className="title-hero text-left">
+            <h1 className="selamatDatang text-left">
+              Selamat Datang di<span className="text-blue-500 ml-2.5 md:ml-2.5 sm:ml-1">Noesantara</span>
+            </h1>
           </div>
-          <div className="right-hero">
+          <div className="desc-hero text-left mt-4">
+            <h3>Platform Smart City Ibu Kota Nusantara yang Terintegrasi</h3>
+          </div>
+        </div>
+        <div className="right-hero hidden md:block">
             <Scrollbutton />
           </div>
         </div>
