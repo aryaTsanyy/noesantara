@@ -19,7 +19,7 @@ const heroSection = () => {
           <HeroPopup />
         </div>
         <div className="container-bottom flex items-left justify-between z-30">
-        <div className="left-hero flex flex-col mt-20 text-left">
+        <div className="left-hero flex flex-col mt-20">
           <div className="title-hero text-left">
             <h1 className="selamatDatang text-left">
               Selamat Datang di<span className="text-blue-500 ml-2.5 md:ml-2.5 sm:ml-1">Noesantara</span>
