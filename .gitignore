@@ -54,3 +54,10 @@ videos/*
 public/_next-video
 large_file_or_directory
 large_file_or_directory
+
+# next-video
+/*
+!/*.json
+!/*.js
+!/*.ts
+public/_next-video
