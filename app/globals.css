@@ -1023,3 +1023,154 @@ body {
     }
   }
 }
+
+/* responsive */
+
+@media (max-width: 768px) {
+  /* Global Typography Adjustments */
+  body {
+    font-size: 14px;
+  }
+
+  /* Hero Section Responsiveness */
+  .title-hero h1, 
+  .title-hero span {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .desc-hero h3 {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .hero-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  /* Collaboration Section */
+  .left-Collab h1 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .sponsors-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .sponsor-item {
+    width: 40%;
+    margin: 10px;
+  }
+
+  /* Services Section */
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .services-center {
+    width: 100%;
+  }
+
+  .services-title {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+
+  /* Transportasi Section */
+  .transportasi-head {
+    text-align: center;
+  }
+
+  .transportasi-head p {
+    width: 100%;
+  }
+
+  .buttons-transport {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .button-transport {
+    margin: 5px;
+  }
+
+  /* Information Section */
+  .information-section {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .informationText {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .judulInformasi {
+    font-size: 24px;
+  }
+
+  .deskripsiBeritaInformasi {
+    width: 100%;
+    text-align: center;
+  }
+
+  .buttonLihat {
+    margin: 20px auto;
+  }
+
+  .carouselViewport {
+    overflow-x: scroll;
+  }
+
+  .beritaInformasi {
+    width: max-content;
+  }
+
+  .boxBerita {
+    width: 250px;
+    margin-right: 10px;
+  }
+
+  /* Footer */
+  .top-footer,
+  .center-footer,
+  .right-footer {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  /* Floating Dots and Animations */
+  .floating-dots {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  /* More Aggressive Mobile Optimization */
+  .title-hero h1, 
+  .title-hero span {
+    font-size: 24px;
+  }
+
+  .desc-hero h3 {
+    font-size: 14px;
+  }
+
+  .services-header {
+    padding: 1rem;
+    height: auto;
+  }
+
+  .boxBerita {
+    width: 220px;
+  }
+
+  .circle {
+    display: none;
+  }
+}
