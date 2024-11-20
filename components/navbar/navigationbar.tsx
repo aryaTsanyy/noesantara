@@ -9,6 +9,7 @@ import LanguageDropdown from "./languageDropdown";
 
 const Navigationbar = () => {
   const [selectedLanguage, setSelectedLanguage] = useState<"ID" | "EN">("ID");
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const handleLanguageChange = (language: "ID" | "EN") => {
     setSelectedLanguage(language);
@@ -18,6 +19,10 @@ const Navigationbar = () => {
   const handleScroll = useCallback(() => {
     const sections = ["Visi-Misi", "Kolaborasi", "Layanan", "Transportasi", "Informasi"];
     let currentSection = sections[0];
+
+    // Check if page is scrolled
+    const scrolled = window.scrollY > 0;
+    setIsScrolled(scrolled);
 
     sections.forEach((section) => {
       const sectionElement = document.getElementById(section);
@@ -48,7 +53,7 @@ const Navigationbar = () => {
 
   return (
     <>
-      <Disclosure as="nav" className="navigationbar bg-transparent w-full fixed top-0 left-0 z-50">
+      <Disclosure as="nav" className={`navigationbar fixed top-0 left-0 z-50 w-full transition-colors duration-300 ${isScrolled ? 'bg-white' : 'bg-transparent'}`}>
         <div className="w-full px-4 sm:px-14 py-10 sm:py-6">
           <div className="w-full relative flex items-center justify-between self-stretch">
             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -61,17 +66,25 @@ const Navigationbar = () => {
             </div>
 
             <div className="hidden sm:flex sm:items-center sm:justify-start">
-              <div className="text-lg flex items-center gap-1 font-semibold text-white sm:ml-0 ml-auto">
+              <div className={`text-lg flex items-center gap-1 font-semibold sm:ml-0 ml-auto transition-colors duration-300 ${isScrolled ? 'text-[#074B5B]' : 'text-white'}`}>
                 <Image src={Logo} alt="Logo" width={30} height={24} />
                 Noesantara
               </div>
             </div>
 
-            <div className="nav-center hidden sm:flex absolute left-2/4 transform -translate-x-1/2 items-center rounded-full sm:items-stretch ">
+            <div className="nav-center hidden sm:flex absolute left-2/4 transform -translate-x-1/2 items-center rounded-full sm:items-stretch">
               <div className="hidden sm:block">
-                <div className="flex">
+                <div className={`flex rounded-full transition-colors duration-300 ${isScrolled ? 'bg-[#EFEFFA]' : ''}`}>
                   {["Visi-Misi", "Kolaborasi", "Layanan", "Transportasi", "Informasi"].map((item) => (
-                    <button key={item} className={`text-sm px-5 py-3 ${active === item ? "active" : ""}`} onClick={() => scrollToSection(item)}>
+                    <button
+                      key={item}
+                      className={`text-sm px-5 py-3 transition-colors duration-300 
+                        ${active === item 
+                          ? (isScrolled ? 'bg-[#007399] text-white' : 'active')
+                          : (isScrolled ? '!text-[#007399]' : '')}`
+                      }
+                      onClick={() => scrollToSection(item)}
+                    >
                       {item.replace("-", " ")}
                     </button>
                   ))}
@@ -81,7 +94,13 @@ const Navigationbar = () => {
 
             <div className="absolute right-0 flex items-center gap-3 sm:static sm:ml-6 sm:pr-0 sm:gap-3">
               <LanguageDropdown selectedLanguage={selectedLanguage} onSelectLanguage={handleLanguageChange} />
-              <button className="btn-login bg-white font-semibold hover:bg-gray-200">Masuk</button>
+              <button className={`btn-login font-semibold transition-colors duration-300 
+                ${isScrolled 
+                  ? 'bg-[#007399] !text-white hover:bg-[#005d7a]'
+                  : 'bg-white text-[#074B5B] hover:bg-gray-200'}`}
+              >
+                Masuk
+              </button>
             </div>
           </div>
         </div>
@@ -89,7 +108,11 @@ const Navigationbar = () => {
         <DisclosurePanel className="sm:hidden">
           <div className="space-y-1 px-2 pb-3 pt-2">
             {["Visi-Misi", "Kolaborasi", "Layanan", "Transportasi", "Informasi"].map((item) => (
-              <button key={item} className={`bg-gray-900 !text-red-700 ${active === item ? "active" : ""}`} onClick={() => scrollToSection(item)}>
+              <button
+                key={item}
+                className={`bg-gray-900 ${active === item ? "active" : ""}`}
+                onClick={() => scrollToSection(item)}
+              >
                 {item.replace("-", " ")}
               </button>
             ))}
@@ -99,4 +122,5 @@ const Navigationbar = () => {
     </>
   );
 };
+
 export default Navigationbar;

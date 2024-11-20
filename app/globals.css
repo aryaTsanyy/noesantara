@@ -757,10 +757,50 @@ body {
 
 .boxBerita {
   overflow: hidden;
+  position: relative;
   border-radius: 13px;
   height: 300px;
   width: 300px;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.boxBerita::before {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  right: -51px;
+  width: 340px;
+  height: 270px;
+  background: #ffffff;
+  border-radius: 50% 50% 0 0;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.boxBerita:hover::before {
+  transform: translateY(50%);
+  opacity: 1;
+}
+
+
+.gradasiBerita {
+  transition: opacity 0.3s ease;
+}
+
+.boxBerita:hover .gradasiBerita {
+  opacity: 0.8;
+}
+
+.boxBerita:hover .spesifikasi {
+  background-color: #007399;
+  color: #ffffff;
+}
+
+.boxBerita:hover .deskripsiBerita {
+  color: #007399;
 }
 
 .thumbnailBerita {
@@ -775,7 +815,7 @@ body {
   );
   position: absolute;
   display: flex;
-  z-index: 1000;
+  z-index: 1;
   width: 230px;
   height: 130px;
   margin-top: -130px;
@@ -790,17 +830,18 @@ body {
   position: absolute;
   color: white;
   display: flex;
-  z-index: 1000;
+  z-index: 3;
   margin-top: -62px;
   margin-left: 13px;
   width: 190px;
+  transition: all 0.3s ease;
 }
 
 .spesifikasi {
   background-color: white;
   color: #007399;
   font-size: 12px;
-  z-index: 1000;
+  z-index: 3;
   position: absolute;
   display: flex;
   margin-top: -95px;
@@ -809,6 +850,7 @@ body {
   font-weight: 500;
   font-family: "figtree-medium";
   margin-left: 13px;
+  transition: all 0.3s ease;
 }
 
 .highlightInformasi {
