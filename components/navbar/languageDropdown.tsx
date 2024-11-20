@@ -4,7 +4,7 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import { ArrowBottom, ArrowTop } from "@/app/images/navbar";
+import { ArrowTopWhite, ArrowBottomWhite, ArrowTopGreen, ArrowBottomGreen } from "@/app/images/navbar";
 
 type Language = "ID" | "EN";
 
@@ -14,7 +14,7 @@ interface LanguageDropdownProps {
   isScrolled?: boolean;
 }
 
-const LanguageDropdown: React.FC<LanguageDropdownProps> = ({ selectedLanguage, onSelectLanguage }) => {
+const LanguageDropdown: React.FC<LanguageDropdownProps> = ({ selectedLanguage, onSelectLanguage, isScrolled = false }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -25,8 +25,16 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({ selectedLanguage, o
     onSelectLanguage(language);
     setIsOpen(false);
   };
+
   const flagSrc = (language: Language) => {
     return `/flags/${language}.svg`;
+  };
+
+  const getArrowIcon = () => {
+    if (isScrolled) {
+      return isOpen ? ArrowTopGreen : ArrowBottomGreen;
+    }
+    return isOpen ? ArrowTopWhite : ArrowBottomWhite;
   };
 
   return (
@@ -35,7 +43,7 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({ selectedLanguage, o
         <Image src={flagSrc(selectedLanguage)} alt={`${selectedLanguage} flag`} width={20} height={20} className="mr-1 flex items-center justify-center" />
         <span className="flex items-center justify-center text-center">{selectedLanguage}</span>
         <Image
-          src={isOpen ? ArrowTop : ArrowBottom}
+          src={getArrowIcon()}
           alt="Dropdown arrow"
           width={30} // Sesuaikan ukuran arrow
           height={30}
