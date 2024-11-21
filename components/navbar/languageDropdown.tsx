@@ -63,8 +63,8 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
         <Image
           src={getArrowIcon()}
           alt="Dropdown arrow"
-          width={30}
-          height={30}
+          width={14}
+          height={14}
           className="ml-2"
         />
       </button>
