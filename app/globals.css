@@ -1300,8 +1300,112 @@ body {
     top: 40px;
     right: 110px;
   }
+
+  .tulisan-transportasi {
+    font-weight: 500;
+    padding: 10px 25px;
+  }
+
+  .judul-transportasi {
+    margin-top: 30px;
+    font-size: 28px !important;
+    text-align: center;
+    max-width: 400px;
+    margin-left: 22px;
+  }
+
+  .deskripsi-transportasi {
+    font-size: 16px !important;
+    max-width: 300px;
+    margin-left: 69px;
+    margin-top: 10px;
+  }
+
+  .buttons-transport {
+    display: flex;
+  }
 }
 
 .text-berbagai {
     text-align: center;
+}
+
+.tulisan-transportasi {
+  font-weight: 500;
+  padding: 10px 25px;
+}
+
+.judul-transportasi {
+  margin-top: 20px;
+}
+
+.deskripsi-transportasi {
+  margin-top: 10px;
+  min-width: 600px;
+}
+
+.buttons-transport {
+  display: flex;
+  margin-top: 30px;
+}
+
+.button-transport {
+  font-size: 16px !important;
+}
+
+.description {
+  margin-top: 20px;
+  width: 720px;
+}
+
+.batas-kanankiri {
+  padding-left: 50px;
+}
+
+.transportasi-animasi {
+  margin-left: 10px;
+}
+
+.atas-kanan {
+  height: 200px;
+  width: 300px;
+  position: absolute;
+  left: 100px;
+  top: 150px;
+  display: flex;
+}
+
+.bawah-kanan {
+  height: 200px;
+  width: 300px;
+  display: flex;
+  position: absolute;
+  z-index: 10;
+  top: 575px;
+  left: 50px;
+}
+
+.lingkaran-biru1 {
+  width: 50px;
+  position: absolute;
+  z-index: 10;
+  top: 160px;
+  right: 20px;
+}
+
+.lingkaran-biru2 {
+  position: absolute;
+  display: flex;
+  z-index: 10;
+  top: 50px;
+  right: 90px;
+}
+
+.gambartransportasi-dua {
+  width: 130px;
+  height: auto;
+}
+
+.gambartransportasi-satu {
+  width: 200px;
 }

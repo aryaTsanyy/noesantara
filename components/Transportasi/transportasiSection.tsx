@@ -26,12 +26,12 @@ const TransportationSection: React.FC = () => {
 
   return (
     <div className="transportasi min-h-screen flex items-center text-white py-12 px-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="batas-kanankiri">
         {/* Header Section */}
         <div className="transportasi-head mb-6">
-          <span className="text-sm px-3 py-1 rounded-full">Transportasi</span>
-          <h2 className="mt-2">Transportasi Cerdas Ibu Kota Nusantara</h2>
-          <p className="mt-2">Ingin merasakan pengalaman transportasi umum IKN yang cerdas dan inovatif? Temukan selengkapnya di sini..</p>
+          <span className="tulisan-transportasi text-sm px-3 py-1 rounded-full">Transportasi</span>
+          <h2 className="judul-transportasi mt-2">Transportasi Cerdas Ibu Kota Nusantara</h2>
+          <p className="deskripsi-transportasi mt-2">Ingin merasakan pengalaman transportasi umum IKN yang cerdas dan inovatif? Temukan selengkapnya di sini..</p>
         </div>
 
         <div className="bottom-container flex">
@@ -53,26 +53,23 @@ const TransportationSection: React.FC = () => {
           </div>
 
           {/* Images Section */}
-          <div className="right-Collab mr-14 relative w-1/2 flex -m-52 flex-col">
-            <div className="top-Right flex justify-end items-start relative h-full" style={{ marginBottom: "-40px", marginTop: "-20px" }}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none" className="absolute right-80 animate-float-slow">
-                <circle cx="25" cy="25" r="25" fill="#59D6FF" />
-              </svg>
+          <div className="transportasi-animasi mr-14 relative w-1/2 flex -m-52 flex-col">
+            <div className="atas-kanan flex justify-end items-start relative h-full" style={{ marginBottom: "-40px", marginTop: "-20px" }}>
               <Image
                 src={traintwo}
                 alt="Train"
                 width={250}
                 height={250}
-                className="mr-20 animate-float-medium"
+                className="gambartransportasi-satu mr-20 animate-float-medium"
                 style={{ transform: "translateY(-30px)" }}
               />
-              <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none" className="absolute top-40 right-5 animate-float-fast">
+              <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none" className="lingkaran-biru1 absolute top-40 right-5 animate-float-fast">
                 <circle cx="30" cy="30" r="30" fill="#59D6FF" />
               </svg>
             </div>
 
-            <div className="bottom-Right relative flex justify-end items-center h-full" style={{ marginTop: "-250px" }}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" className="mr-20 animate-float-slow">
+            <div className="bawah-kanan relative flex justify-end items-center h-full" style={{ marginTop: "-250px" }}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" className="lingkaran-biru2 mr-20 animate-float-slow">
                 <circle cx="10" cy="10" r="10" fill="#59D6FF" />
               </svg>
               <Image
@@ -80,7 +77,7 @@ const TransportationSection: React.FC = () => {
                 alt="Tree"
                 width={200}
                 height={200}
-                className="items-end animate-float-fast"
+                className="gambartransportasi-dua items-end animate-float-fast"
                 style={{ transform: "translateY(-20px)" }}
               />
             </div>
