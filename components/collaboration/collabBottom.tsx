@@ -25,19 +25,19 @@ const CollabBottom = () => {
 
       <div className="right-Collab mr-14 relative w-1/2 flex flex-col">
         <div className="top-Right flex justify-end relative h-full">
-          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none" className="absolute right-80 animate-float-slow">
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none" className="lingkaran-satu absolute right-80 animate-float-slow">
             <circle cx="25" cy="25" r="25" fill="#59D6FF" />
           </svg>
-          <Image src={CollabIMG.Train} alt="Train" width={250} height={250} className="mr-20 animate-float-medium" />
-          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none" className="absolute top-40 right-5 animate-float-fast">
+          <Image src={CollabIMG.Train} alt="Train" width={250} height={250} className="kereta-collab mr-20 animate-float-medium" />
+          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none" className="lingkaran-dua absolute top-40 right-5 animate-float-fast">
             <circle cx="30" cy="30" r="30" fill="#59D6FF" />
           </svg>
         </div>
         <div className="bottom-Right relative flex justify-end items-center h-full">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" className="mr-20 animate-float-slow">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" className="lingkaran-tiga mr-20 animate-float-slow">
             <circle cx="10" cy="10" r="10" fill="#59D6FF" />
           </svg>
-          <Image src={CollabIMG.Tree} alt="Tree" width={200} height={200} className="items-end animate-float-fast" />
+          <Image src={CollabIMG.Tree} alt="Tree" width={200} height={200} className="pohon-collab items-end animate-float-fast" />
         </div>
       </div>
     </div>

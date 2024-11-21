@@ -1255,16 +1255,51 @@ body {
     min-width: 400px;
     display: flex;
     margin-left: 70px;
-    margin-top: -100px;
+    margin-top: -200px;
   }
 
   .right-Collab {
     position: relative;
     display: flex;
-    top: 220px;
-    right: 50px;
+    top: 200px;
+    right: 465px;
+    min-width: 400px;
   }
 
+  .kereta-collab {
+    width: 200px;
+  }
+
+  .pohon-collab {
+    width: 150px;
+  }
+
+  .layanan-public {
+    margin-top: 250px;
+  }
+
+  .lingkaran-satu {
+    left: 60px;
+    position: absolute;
+    display: flex;
+    z-index: 10;
+  }
+
+  .lingkaran-dua {
+    width: 40px;
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    top: 130px;
+  }
+
+  .lingkaran-tiga {
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    top: 40px;
+    right: 110px;
+  }
 }
 
 .text-berbagai {
