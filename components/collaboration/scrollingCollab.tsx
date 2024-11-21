@@ -65,11 +65,18 @@ const ScrollingCollab = () => {
     { name: "Microsoft", logo: microsoft },
   ];
   return (
-    <div className="sponsors-wrapper flex items-center">
-      <div className="sponsors-grid flex items-center">
+    <div className="sponsors-wrapper w-full overflow-hidden">
+      <div className="sponsors-grid flex flex-wrap justify-center items-center gap-8 md:flex-nowrap">
         {collaborators.map((collaborator, index) => (
-          <div key={index} className="sponsor-item flex items-center">
-            <Image src={collaborator.logo} alt={`${collaborator.name} logo`} className="sponsor-logo flex items-center" />
+          <div 
+            key={index} 
+            className="sponsor-item flex-shrink-0 w-1/3 md:w-auto flex justify-center items-center"
+          >
+            <Image 
+              src={collaborator.logo} 
+              alt={`${collaborator.name} logo`} 
+              className="sponsor-logo max-h-12 max-w-[120px] object-contain" 
+            />
           </div>
         ))}
       </div>

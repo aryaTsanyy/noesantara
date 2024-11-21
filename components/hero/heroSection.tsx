@@ -11,7 +11,7 @@ const heroSection = () => {
       <div className="bg-hero w-full h-screen absolute bottom-0">
         <div className="absolute gradient-hero w-full h-screen z-20"></div>
         <div className="absolute bottom-0 ikn-bg z-10 mx-24">
-          <Image src={IknIMG} alt="ikn" className="z-10" />
+          <Image src={IknIMG} alt="ikn" className="img-hero z-10" />
         </div>
       </div>
       <div className="hero-container z-30 h-screen flex flex-col mx-14 py-20 justify-end">
