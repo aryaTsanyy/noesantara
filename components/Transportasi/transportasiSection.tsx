@@ -1,8 +1,12 @@
 /** @format */
 "use client";
-import { ikntrain, traintwo } from "@/app/images/transportasi";
+import { 
+  ikntrain, 
+  traintwo, 
+  mobilmelayang1, 
+  mobilmelayang2 
+} from "@/app/images/transportasi";
 import Image from "next/image";
-// components/TransportationSection.tsx
 import React, { useState } from "react";
 
 const TransportationSection: React.FC = () => {
@@ -19,10 +23,14 @@ const TransportationSection: React.FC = () => {
       );
     } else {
       setDescription(
-        `Mobil Listrik Otonom adalah kendaraan ramah lingkungan yang menggunakan teknologi listrik dan kecerdasan buatan untuk bergerak secara otomatis tanpa pengemudi. Kendaraan ini dirancang untuk mengurangi emisi karbon dan memberikan pengalaman berkendara yang aman dan efisien.`
+        `Mobil Listrik Otonom adalah kendaraan inovatif dan ramah lingkungan yang menggunakan teknologi listrik dan kecerdasan buatan untuk bergerak secara otomatis tanpa pengemudi. Kendaraan ini dirancang untuk mengurangi emisi karbon yang dihasilkan oleh kendaraan berbahan bakar fosil dan memberikan pengalaman berkendara yang aman, efisien dan sekaligus mendukung upaya global menuju mobilitas berkelanjutan.`
       );
     }
   };
+
+  // Kondisi gambar berdasarkan tombol aktif
+  const firstImage = activeButton === "ART" ? traintwo : mobilmelayang1;
+  const secondImage = activeButton === "ART" ? ikntrain : mobilmelayang2;
 
   return (
     <div className="transportasi min-h-screen flex items-center text-white py-12 px-4">
@@ -39,10 +47,16 @@ const TransportationSection: React.FC = () => {
             <div className="left-container flex flex-col items-start">
               {/* Left */}
               <div className="buttons-transport">
-                <button className={`button-transport ${activeButton === "ART" ? "active" : ""}`} onClick={() => handleButtonClick("ART")}>
+                <button 
+                  className={`button-transport ${activeButton === "ART" ? "active" : ""}`} 
+                  onClick={() => handleButtonClick("ART")}
+                >
                   Autonomous Rail Transit (ART)
                 </button>
-                <button className={`button-transport ${activeButton === "MLO" ? "active" : ""}`} onClick={() => handleButtonClick("MLO")}>
+                <button 
+                  className={`button-transport ${activeButton === "MLO" ? "active" : ""}`} 
+                  onClick={() => handleButtonClick("MLO")}
+                >
                   Mobil Listrik Otonom
                 </button>
               </div>
@@ -56,8 +70,8 @@ const TransportationSection: React.FC = () => {
           <div className="transportasi-animasi mr-14 relative w-1/2 flex -m-52 flex-col">
             <div className="atas-kanan flex justify-end items-start relative h-full" style={{ marginBottom: "-40px", marginTop: "-20px" }}>
               <Image
-                src={traintwo}
-                alt="Train"
+                src={firstImage}
+                alt="Transportation Image 1"
                 width={250}
                 height={250}
                 className="gambartransportasi-satu mr-20 animate-float-medium"
@@ -73,15 +87,14 @@ const TransportationSection: React.FC = () => {
                 <circle cx="10" cy="10" r="10" fill="#59D6FF" />
               </svg>
               <Image
-                src={ikntrain}
-                alt="Tree"
+                src={secondImage}
+                alt="Transportation Image 2"
                 width={200}
                 height={200}
                 className="gambartransportasi-dua items-end animate-float-fast"
                 style={{ transform: "translateY(-20px)" }}
               />
             </div>
-
           </div>
         </div>
       </div>

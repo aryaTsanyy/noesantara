@@ -419,7 +419,7 @@ body {
     rgba(0, 115, 153, 0) 100%
   );
   color: #fff;
-  padding: 20px;
+  padding: 20px 20px;
   box-sizing: border-box;
   transition: transform 0.3s ease;
   display: flex;
@@ -1306,23 +1306,64 @@ body {
     padding: 10px 25px;
   }
 
+  .transportasi-head {
+    width: 400px;
+    margin-left: -25px;
+  }
+
+  .batas-kanankiri {
+    padding: 5px;
+    width: 450px;
+  }
+
   .judul-transportasi {
     margin-top: 30px;
     font-size: 28px !important;
     text-align: center;
-    max-width: 400px;
-    margin-left: 22px;
+    width: 400px;
   }
 
   .deskripsi-transportasi {
-    font-size: 16px !important;
-    max-width: 300px;
-    margin-left: 69px;
-    margin-top: 10px;
+    font-size: 14px !important;
+    position: relative;
   }
 
   .buttons-transport {
     display: flex;
+  }
+
+  .buttons-transport {
+    display: flex;
+  }
+  
+  .button-transport {
+  }
+  
+  .description {
+  }
+  
+  .batas-kanankiri {
+  }
+  
+  .transportasi-animasi {
+  }
+  
+  .atas-kanan {
+  }
+  
+  .bawah-kanan {
+  }
+  
+  .lingkaran-biru1 {
+  }
+  
+  .lingkaran-biru2 {
+  }
+  
+  .gambartransportasi-dua {
+  }
+  
+  .gambartransportasi-satu {
   }
 }
 
@@ -1341,7 +1382,7 @@ body {
 
 .deskripsi-transportasi {
   margin-top: 10px;
-  min-width: 600px;
+  width: 600px !important;
 }
 
 .buttons-transport {
